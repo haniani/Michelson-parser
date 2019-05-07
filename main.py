@@ -45,3 +45,4 @@ with open("michelson_new.csv", 'w') as csv_file:
         write_mean_word = word + ' \t' + meaning + ' \n'
         print(write_mean_word)
         writer = csv_file.write(str(write_mean_word))
+
