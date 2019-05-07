@@ -7,7 +7,7 @@ from urllib import request
 summary_links = []
 summary_links_letter = []
 
-page_first = urllib.request.urlopen('https://dic.academic.ru/contents.nsf/michelson_new/')
+page_first = urllib.request.urlopen('https://dic.academic.ru/contents.nsf/michelson_old/')
 first_links = BeautifulSoup(page_first, 'html.parser')
 for links in first_links.find_all(class_ = 'contents-wrap'):  #первый общий указатель
     for link in links.find_all('a'):
@@ -20,7 +20,7 @@ for i in summary_links: #второй общий указатель по бук�
         for link2 in links2.find_all('a'):
             summary_links_letter.append(link2.get('href'))
 
-with open("michelson_new.csv", 'w') as csv_file:
+with open("michelson_old.csv", 'w') as csv_file:
     for links3 in summary_links_letter:
         edit_links3 = links3.rsplit('/', 1)
         edited_links = edit_links3[0] + '/' #убираем кириллицу
